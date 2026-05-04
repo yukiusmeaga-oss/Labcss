@@ -1,0 +1,385 @@
+/* ============================================================
+   style-profil.css — Lab 6: Styling Halaman Profil dari P2
+   Media Interaktif — Pertemuan 3
+   ISBI Tanah Papua — DKV
+   Daniel Sande Bona, ST.M.Sc.
+
+   FILE INI MENATA tugas.html DARI PERTEMUAN 2
+   TANPA MENGUBAH SATU BARIS PUN KONTEN HTML!
+
+   Struktur CSS ini:
+   1.  Reset & Box Model
+   2.  Body & Tipografi Dasar
+   3.  Header
+   4.  Foto Profil (img di dalam header)
+   5.  Navigasi (nav)
+   6.  Main Content
+   7.  Section
+   8.  Heading di dalam Section
+   9.  Paragraf & Teks
+   10. Blockquote
+   11. List (ul, ol, li)
+   12. Link (a)
+   13. Code & strong & em
+   14. Horizontal Rule (hr)
+   15. Footer
+   16. Responsive (layar kecil)
+   ============================================================ */
+
+
+/* ── 1. RESET & BOX MODEL ─────────────────────────────────────
+   Selalu di baris paling atas!
+   box-sizing: border-box = lebar termasuk padding & border
+   ──────────────────────────────────────────────────────────── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ── 2. BODY & TIPOGRAFI DASAR ───────────────────────────────*/
+body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1A2E4A;
+    background-color: #F4F7FC;
+    min-height: 100vh;
+}
+
+
+/* ── 3. HEADER ───────────────────────────────────────────────
+   Area kepala halaman: foto, nama, navigasi
+   ──────────────────────────────────────────────────────────── */
+header {
+    background-color: #0A1628;
+    color: white;
+    padding: 48px 30px 32px;
+    text-align: center;
+}
+
+/* Garis emas dekoratif di atas header */
+header::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #F5B800;
+    margin: 0 auto 24px;
+    border-radius: 2px;
+}
+
+
+/* ── 4. FOTO PROFIL ──────────────────────────────────────────
+   img di dalam header
+   ──────────────────────────────────────────────────────────── */
+header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;             /* membuat gambar jadi lingkaran */
+    border: 4px solid #F5B800;      /* border emas */
+    object-fit: cover;              /* gambar tidak terdistorsi */
+    display: block;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 0 6px rgba(245, 184, 0, 0.2);  /* cahaya emas di sekitar foto */
+}
+
+
+/* ── h1, h2, h3 di dalam HEADER ─────────────────────────────
+   Berbeda dari heading di section/main!
+   ──────────────────────────────────────────────────────────── */
+header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+header h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #F5B800;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+header h3 {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 24px;
+}
+
+
+/* ── 5. NAVIGASI ─────────────────────────────────────────────
+   Link-link di dalam <nav>
+   ──────────────────────────────────────────────────────────── */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+nav a {
+    color: #0A1628;
+    background-color: #F5B800;
+    text-decoration: none;
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transition: background-color 0.2s, transform 0.15s;  /* animasi halus */
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #FFD040;
+    transform: translateY(-2px);    /* efek naik sedikit saat hover */
+}
+
+nav a:active {
+    transform: translateY(0);       /* kembali saat diklik */
+}
+
+
+/* ── 6. MAIN CONTENT ─────────────────────────────────────────
+   Pembungkus semua section
+   max-width + margin auto = konten terpusat & mudah dibaca
+   ──────────────────────────────────────────────────────────── */
+main {
+    max-width: 800px;
+    margin: 32px auto;
+    padding: 0 20px;
+}
+
+
+/* ── 7. SECTION ──────────────────────────────────────────────
+   Setiap bagian konten diberi kartu putih
+   ──────────────────────────────────────────────────────────── */
+section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    border-left: 4px solid #2A6DB5;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.2s;
+}
+
+section:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);  /* bayangan lebih kuat saat hover */
+}
+
+/* Section kontak — beda aksen warna */
+section#kontak {
+    border-left-color: #F5B800;
+}
+
+/* Section hobi — beda aksen warna */
+section#hobi {
+    border-left-color: #2E7D32;
+}
+
+/* Section langkah — beda aksen warna */
+section#langkah {
+    border-left-color: #E07B39;
+}
+
+
+/* ── 8. HEADING DI DALAM SECTION ─────────────────────────────
+   h2 dan h3 di dalam <section> (bukan di header)
+   ──────────────────────────────────────────────────────────── */
+section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0A1628;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #F4F7FC;  /* garis pemisah tipis */
+}
+
+section h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2A6DB5;
+    margin: 18px 0 8px;
+}
+
+
+/* ── 9. PARAGRAF & TEKS ──────────────────────────────────────*/
+section p {
+    color: #1A2E4A;
+    font-size: 15px;
+    margin-bottom: 12px;
+    line-height: 1.75;
+}
+
+
+/* ── 10. BLOCKQUOTE ──────────────────────────────────────────*/
+blockquote {
+    background-color: #EBF3FB;
+    border-left: 5px solid #2A6DB5;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    color: #1A2E4A;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+blockquote::before {
+    content: '\201C';             /* tanda kutip buka */
+    font-size: 48px;
+    color: #2A6DB5;
+    line-height: 0;
+    vertical-align: -14px;
+    margin-right: 6px;
+    font-family: Georgia, serif;
+}
+
+
+/* ── 11. LIST ────────────────────────────────────────────────*/
+section ul,
+section ol {
+    padding-left: 22px;
+    margin-bottom: 12px;
+}
+
+section li {
+    margin-bottom: 8px;
+    color: #1A2E4A;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Nested list (list di dalam list) */
+section ul ul,
+section ol ol,
+section ul ol,
+section ol ul {
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+
+section ul ul li,
+section ol ul li {
+    font-size: 14px;
+    color: #6B7A8D;
+    margin-bottom: 4px;
+}
+
+
+/* ── 12. LINK ────────────────────────────────────────────────*/
+section a {
+    color: #2A6DB5;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(42, 109, 181, 0.3);
+    transition: color 0.2s, border-color 0.2s;
+}
+
+section a:hover {
+    color: #0A1628;
+    border-bottom-color: #0A1628;
+}
+
+
+/* ── 13. CODE & STRONG & EM ──────────────────────────────────*/
+code {
+    background-color: #E8EFF8;
+    color: #2A6DB5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+}
+
+strong {
+    color: #E07B39;
+    font-weight: 700;
+}
+
+em {
+    color: #2A6DB5;
+    font-style: italic;
+}
+
+
+/* ── 14. HORIZONTAL RULE ─────────────────────────────────────*/
+hr {
+    border: none;
+    border-top: 1px solid #DEE4EC;
+    margin: 20px 0;
+}
+
+
+/* ── 15. FOOTER ──────────────────────────────────────────────*/
+footer {
+    background-color: #0A1628;
+    color: #6B7A8D;
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+footer p {
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+    font-size: 12px;
+    color: rgba(107, 122, 141, 0.7);
+}
+
+/* Garis emas dekoratif di atas footer */
+footer::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #F5B800;
+    margin: 0 auto 16px;
+    border-radius: 2px;
+}
+
+
+/* ── 16. RESPONSIVE ──────────────────────────────────────────
+   Penyesuaian untuk layar kecil (HP/tablet)
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+
+    header {
+        padding: 32px 20px 24px;
+    }
+
+    header h1 { font-size: 22px; }
+    header h2 { font-size: 14px; }
+
+    nav a {
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+
+    main {
+        padding: 0 14px;
+        margin: 20px auto;
+    }
+
+    section {
+        padding: 20px 20px;
+    }
+
+    section h2 { font-size: 17px; }
+}
